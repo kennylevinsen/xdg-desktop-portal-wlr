@@ -85,7 +85,7 @@ static void wlr_frame_linux_dmabuf(void *data,
 		new->fourcc = fm_pair->fourcc;
 		new->modifier = fm_pair->modifier;
 		char *modifier_name = drmGetFormatModifierName(new->modifier);
-		logprint(TRACE, "wlroots: linux_dmabuf event: %s (%X), modifier: %s (%X)", fmt_name, format, new->modifier, modifier_name);
+		logprint(TRACE, "wlroots: linux_dmabuf event: %s (%X), modifier: %s (%X)", fmt_name, format, modifier_name, new->modifier);
 		free(modifier_name);
 	}
 	free(fmt_name);
