@@ -71,8 +71,7 @@ static void wlr_frame_linux_dmabuf(void *data,
 		return;
 	}
 
-	logprint(TRACE, "wlroots: linux_dmabuf event handler");
-
+	char *fmt_name = drmGetFormatName(format);
 
 	struct xdpw_format_modifier_pair *fm_pair;
 	wl_array_for_each(fm_pair, &cast->ctx->format_modifier_pairs) {
@@ -85,7 +84,11 @@ static void wlr_frame_linux_dmabuf(void *data,
 		assert(new != NULL);
 		new->fourcc = fm_pair->fourcc;
 		new->modifier = fm_pair->modifier;
+		char *modifier_name = drmGetFormatModifierName(new->modifier);
+		logprint(TRACE, "wlroots: linux_dmabuf event: %s (%X), modifier: %s (%X)", fmt_name, format, new->modifier, modifier_name);
+		free(modifier_name);
 	}
+	free(fmt_name);
 
 	cast->pending_constraints.width = width;
 	cast->pending_constraints.height = height;
