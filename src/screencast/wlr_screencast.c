@@ -592,17 +592,17 @@ static void wlr_registry_handle_add(void *data, struct wl_registry *reg,
 			reg, id, &zwlr_screencopy_manager_v1_interface, version);
 	}
 
-	if (!strcmp(interface, ext_output_image_capture_source_manager_v1_interface.name)) {
-		logprint(DEBUG, "wlroots: |-- registered to interface %s (Version %u)", interface, ver);
-		ctx->ext_output_image_capture_source_manager = wl_registry_bind(
-				reg, id, &ext_output_image_capture_source_manager_v1_interface, 1);
-	}
-
-	if (!strcmp(interface, ext_image_copy_capture_manager_v1_interface.name)) {
-		logprint(DEBUG, "wlroots: |-- registered to interface %s (Version %u)", interface, ver);
-		ctx->ext_image_copy_capture_manager = wl_registry_bind(
-				reg, id, &ext_image_copy_capture_manager_v1_interface, 1);
-	}
+	// if (!strcmp(interface, ext_output_image_capture_source_manager_v1_interface.name)) {
+	// 	logprint(DEBUG, "wlroots: |-- registered to interface %s (Version %u)", interface, ver);
+	// 	ctx->ext_output_image_capture_source_manager = wl_registry_bind(
+	// 			reg, id, &ext_output_image_capture_source_manager_v1_interface, 1);
+	// }
+	//
+	// if (!strcmp(interface, ext_image_copy_capture_manager_v1_interface.name)) {
+	// 	logprint(DEBUG, "wlroots: |-- registered to interface %s (Version %u)", interface, ver);
+	// 	ctx->ext_image_copy_capture_manager = wl_registry_bind(
+	// 			reg, id, &ext_image_copy_capture_manager_v1_interface, 1);
+	// }
 
 	if (strcmp(interface, wl_shm_interface.name) == 0) {
 		logprint(DEBUG, "wlroots: |-- registered to interface %s (Version %u)", interface, WL_SHM_VERSION);
