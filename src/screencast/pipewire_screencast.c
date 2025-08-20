@@ -582,7 +582,7 @@ static void pwr_handle_stream_on_process(void *data) {
 	}
 
 	if (cast->current_frame.pw_buffer) {
-		logprint(DEBUG, "pipewire: buffer already exported");
+		logprint(TRACE, "pipewire: buffer already exported");
 		return;
 	}
 
